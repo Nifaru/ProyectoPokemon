@@ -1,0 +1,58 @@
+<div class="content">
+
+  <form [formGroup]="myForm" class="formPokemon" (ngSubmit)="onSubmit()">
+
+
+    <mat-form-field appearance="outline" class="fieldTest">
+      <mat-label>Ingresa un pokemón</mat-label>
+      <input matInput placeholder="pokemon" formControlName="name" type="text">
+    </mat-form-field>
+  </form>
+
+
+
+  <div *ngIf="!showImage">
+    <h2>{{data.name}}</h2>
+  </div>
+  <div class="ContainerListPokemon" *ngIf="showImage==false">
+   
+      <mat-card *ngFor="let pokemon of pokemonList; index as i;" class=" example-card">
+      
+        <mat-card-header>
+
+          <mat-card-title>{{pokemon.name}}</mat-card-title>
+          <mat-card-subtitle>{{pokemon.type}}</mat-card-subtitle>
+        </mat-card-header>
+        <img class="pokemonImage"  [style.background-color]="pokemon.color"  mat-card-image src={{pokemon.image}}
+          alt="Photo of a Shiba Inu">
+        <br />
+        <mat-card-content>
+          <h3>abilities:</h3>
+          <ul>
+            <li *ngFor="let abilitie of pokemon.abilities">{{ abilitie }}</li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+  
+
+  </div>
+  <div *ngIf="showImage">
+
+    <mat-card class="example-card">
+      <mat-card-header>
+
+        <mat-card-title>{{data.name}}</mat-card-title>
+        <mat-card-subtitle>{{data.types[0].type.name}}</mat-card-subtitle>
+      </mat-card-header>
+      <img class="pokemonImage"  [style.background-color]="data.typeColor" mat-card-image src={{data.sprites.other.dream_world.front_default}}
+        alt="Photo of a Shiba Inu">
+      <br />
+      <mat-card-content>
+        <h3>abilities:</h3>
+        <ul>
+          <li *ngFor="let product of data.abilities">{{ product.ability.name }}</li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
