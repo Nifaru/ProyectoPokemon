@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   showImage: boolean = false;
   data: any = {}
   pokemonList: any = [];
-  typeColor:any = {
+  typeColor:any = { //Escoger color segun el genero
     bug: "#26de81",
     dragon: "#ffeaa7",
     electric: "#fed330",
@@ -51,14 +51,14 @@ export class HomeComponent implements OnInit {
       this.myForm.reset();
   }
 
-  consultPokemon(pokemon:string){
+  consultPokemon(pokemon:string){ //Consuta
     this.apiService.getData(pokemon).subscribe({
         next: this.handleSuccessMethod.bind(this),
         error:this.handleErrorMethod.bind(this),
     })
   }
 
-  getAllFirstGenPokemon(): void {
+  getAllFirstGenPokemon(): void { // Obtener todo en la primera generacion en un array
     this.pokeApiService.GetFirstGenerationPokemon().subscribe((result: any) => {
       const pokemonArray = result.results;
 

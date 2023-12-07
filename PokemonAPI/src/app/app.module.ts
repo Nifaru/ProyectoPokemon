@@ -14,15 +14,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 
-import { ClassExampleComponent } from './class-example/class-example.component';
-import { CardPokemonComponent } from "./card-pokemon/card-pokemon.component";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    CardPokemonComponent
+    HomeComponent
   ],
   imports: [
     RouterModule,
